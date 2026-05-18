@@ -1,0 +1,7 @@
+{
+    "java.project.sourcePaths": ["BankingApplication/src"],
+    "java.project.outputPath": "BankingApplication/bin",
+    "java.project.referencedLibraries": [
+        "BankingApplication/lib/**/*.jar"
+    ]
+}
