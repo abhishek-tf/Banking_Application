@@ -1,6 +1,6 @@
 package com.tandf.casestudy.banking;
 
-public abstract class BankAccount {
+public abstract class BankAccount implements Cloneable {
 
     private String accountNumber;
     private CustomerAccount customer;
@@ -86,4 +86,18 @@ public abstract class BankAccount {
     }
 
     public abstract void displayDetails();
+
+    @Override
+    public BankAccount clone() throws CloneNotSupportedException {
+        return (BankAccount) super.clone();
+    }
+
+    public BankAccount deepClone() throws CloneNotSupportedException {
+        BankAccount copy = (BankAccount) super.clone();
+        if (this.customer != null) {
+            copy.customer = this.customer.deepClone();
+        }
+        return copy;
+    }
 }
+
