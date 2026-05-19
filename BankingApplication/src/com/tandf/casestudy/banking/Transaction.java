@@ -40,4 +40,14 @@ public class Transaction {
     public LocalDateTime getTimestamp() {
         return timestamp;
     }
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "transactionId='" + transactionId + '\'' +
+                ", accountNumber='" + accountNumber + '\'' +
+                ", amount=" + amount +
+                ", transactionType=" + transactionType +
+                ", timestamp=" + timestamp +
+                '}';
+}
 }
