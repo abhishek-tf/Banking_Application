@@ -1,6 +1,7 @@
 package com.tandf.casestudy.banking;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 public class Transaction {
     private final String transactionId;
@@ -9,11 +10,11 @@ public class Transaction {
     private final TransactionType transactionType;
     private final LocalDateTime timestamp;
 
-    public Transaction(String transactionId, String accountNumber, double amount, TransactionType transactionType) {
+    public Transaction(String accountNumber, double amount, TransactionType transactionType) {
         if (amount <= 0) {
             throw new InvalidAmountException("Transaction amount must be greater than zero: " + amount);
         }
-        this.transactionId = transactionId;
+        this.transactionId = UUID.randomUUID().toString();
         this.accountNumber = accountNumber;
         this.amount = amount;
         this.transactionType = transactionType;
