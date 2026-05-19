@@ -1,12 +1,19 @@
 package com.tandf.casestudy.banking;
 import java.util.Objects;
-public class CustomerAccount{
+public class CustomerAccount implements Cloneable{
     private String customerId;
     private String name;
     private String email;
     private String phNumber;
+    private Address address;
     	public void setCustomerId(String customerId) {
 		this.customerId = customerId;
+	}
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 	public String getName() {
 		return name;
@@ -39,7 +46,21 @@ public class CustomerAccount{
 		if((len==10) || (phNumber.startsWith("+91") && len==13)) this.phNumber = phNumber;
 		else throw new InvalidPhoneNumberException("The valid phone number should contain 10 digits");
 	}
-    
+	public CustomerAccount(String customerId, String name, String email, String phNumber, Address address) throws InvalidEmailException, InvalidPhoneNumberException {
+		this(customerId, name, email, phNumber);
+		this.address = address;
+	}
+	@Override
+    public CustomerAccount clone() throws CloneNotSupportedException {
+		return (CustomerAccount)super.clone();
+	}
+	public CustomerAccount deepClone() throws CloneNotSupportedException {
+		CustomerAccount copy = (CustomerAccount) super.clone();
+		if (this.address != null) {
+			copy.address = this.address.clone();
+		}
+		return copy;
+	}
 	@Override
 	public String toString() {
 		return "CustomerAccount [customerId=" + customerId + ", name=" + name + ", email=" + email + ", phNumber="
@@ -62,6 +83,3 @@ public class CustomerAccount{
 				&& Objects.equals(name, other.name) && Objects.equals(phNumber, other.phNumber);
 	}
 }
-// •	customerId must be unique 
-// •	email must contain @ 
-// •	phone number must be 10 digits 
