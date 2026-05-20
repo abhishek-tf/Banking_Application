@@ -369,9 +369,9 @@ public class BankApplication {
 
                         System.out.println("Enter Bill Amount:");
                         double billAmount = sc.nextDouble();
+                        sc.nextLine();
                         System.out.println("Enter Bill Name:");
                         String billName = sc.nextLine(); // Consume newline and read bill name
-                        sc.nextLine();
 
                         try {
 
