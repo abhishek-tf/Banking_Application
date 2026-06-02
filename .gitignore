@@ -10,3 +10,9 @@ bin/
 # OS files
 .DS_Store
 Thumbs.db
+
+
+#jar file
+out/
+META-INF/
+MANIFEST.MF
