@@ -1,4 +1,4 @@
-# === STAGE 1 ===
+# === STAGE 1: Build ===
 FROM eclipse-temurin:25-jdk-noble AS builder
 
 WORKDIR /build
@@ -14,13 +14,13 @@ RUN jar --create \
     -C out .
 
 
-# === STAGE 2 ===
-FROM ubuntu:24.04
+# === STAGE 2: Runtime ===
+FROM eclipse-temurin:25-jre-noble
 
 WORKDIR /app
 
 RUN apt-get update && \
-    apt-get install -y openjdk-21-jre ttyd && \
+    apt-get install -y ttyd && \
     rm -rf /var/lib/apt/lists/*
 
 COPY --from=builder /build/app.jar app.jar
