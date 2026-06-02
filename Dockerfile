@@ -3,10 +3,8 @@ FROM eclipse-temurin:25-jdk-noble AS builder
 
 WORKDIR /build
 
-# Copy source code
-COPY src/ ./src/
+COPY BankingApplication/src/ ./src/
 
-# Compile all Java files
 RUN mkdir -p out && \
     javac -d out $(find src -name "*.java")
 
