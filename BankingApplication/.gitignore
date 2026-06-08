@@ -1,0 +1,20 @@
+# Compiled Java class files
+bin/
+*.class
+ 
+# IDE files
+.idea/
+.vscode/
+*.iml
+ 
+# OS files
+.DS_Store
+Thumbs.db
+ 
+ 
+#jar file
+out/
+META-INF/
+MANIFEST.MF
+
+target/
