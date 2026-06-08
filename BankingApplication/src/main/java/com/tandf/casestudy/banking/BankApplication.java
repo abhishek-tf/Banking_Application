@@ -39,8 +39,7 @@ public class BankApplication {
             System.out.println("8. View Transactions");
             System.out.println("9. Exit");
             System.out.print("Enter your choice: ");
-            int choice = sc.nextInt();
-            sc.nextLine();
+            int choice = Integer.parseInt(sc.nextLine());
             switch (choice) {
                 case 1:
                     System.out.println("Enter Customer ID:");
@@ -74,8 +73,7 @@ public class BankApplication {
                         break;
                     }
                     System.out.println("Enter Account Type (1 for Savings, 2 for Current):");
-                    int accountType = sc.nextInt();
-                    sc.nextLine(); // Consume the newline character
+                    int accountType = Integer.parseInt(sc.nextLine());;
                     if (accountType != 1 && accountType != 2) {
                         System.out.println("Invalid account type. Please enter 1 for Savings or 2 for Current.");
                         break;
@@ -85,8 +83,7 @@ public class BankApplication {
                         String accountNumber = "ACC" + randomNumber;
 
                         System.out.println("Enter Initial Deposit:");
-                        double initialDeposit = sc.nextDouble();
-                        sc.nextLine(); // Consume the newline character
+                        double initialDeposit = Double.parseDouble(sc.nextLine());
                         //generate account number   
                         try {
                             SavingAccount savingAccount = new SavingAccount(accountNumber, l1.get(Id), initialDeposit);
@@ -101,8 +98,7 @@ public class BankApplication {
                         String accountNumber = "ACC" + randomNumber;
                         System.out.println("Generated Account Number: please copy it " + accountNumber);
                         System.out.println("Enter Initial Deposit:");
-                        double initialDeposit = sc.nextDouble();
-                        sc.nextLine(); // Consume the newline character
+                        double initialDeposit =  Double.parseDouble(sc.nextLine());
                         try {
                             CurrentAccount currentAccount = new CurrentAccount(accountNumber, l1.get(Id), initialDeposit);
                             accounts.put(accountNumber, currentAccount);
@@ -121,8 +117,7 @@ public class BankApplication {
                         break;
                     }
                     System.out.println("Enter Deposit Amount:");
-                    double depositAmount = sc.nextDouble();
-                    sc.nextLine(); // Consume the newline character
+                    double depositAmount = Double.parseDouble(sc.nextLine());
                     try {
                         // accounts.get(accNum).deposit(depositAmount);
                         BankAccount account = accounts.get(accNum);
@@ -140,8 +135,8 @@ public class BankApplication {
                         break;
                     }
                     System.out.println("Enter Withdrawal Amount:");
-                    double withdrawAmount = sc.nextDouble();
-                    sc.nextLine(); // Consume the newline character
+                    double withdrawAmount = Double.parseDouble(sc.nextLine());
+
                     try {
                         BankAccount account = accounts.get(accNumWithdraw);
                         account.withdraw(withdrawAmount);
@@ -164,8 +159,8 @@ public class BankApplication {
                         break;
                     }
                     System.out.println("Enter Transfer Amount:");
-                    double transferAmount = sc.nextDouble();
-                    sc.nextLine(); // Consume the newline character
+                    double transferAmount = Double.parseDouble(sc.nextLine());
+
                     try {
                         BankAccount sourceAccount = accounts.get(sourceAccNum);
                         BankAccount destAccount = accounts.get(destAccNum);
@@ -187,8 +182,7 @@ public class BankApplication {
 
                     System.out.println("Wallet Operations:");
                     System.out.println("Enter: 1 for Creating Wallet, 2 for Adding Money, 3 for Paying Bill, 4 for Transferring to Wallet");
-                    int walletChoice = sc.nextInt();
-                    sc.nextLine();
+                    int walletChoice = Integer.parseInt(sc.nextLine());
                     if (walletChoice < 1 || walletChoice > 4) {
                         System.out.println("Invalid choice. Please enter a number between 1 and 4.");
                         break;
@@ -223,8 +217,7 @@ public class BankApplication {
                         }
 
                         System.out.println("Select Wallet Type: 1 for Paytm, 2 for PhonePe");
-                        int walletType = sc.nextInt();
-                        sc.nextLine(); // Consume the newline character
+                        int walletType = Integer.parseInt(sc.nextLine());;
                         if (walletType != 1 && walletType != 2) {
 
                             System.out.println("Invalid wallet type. Please enter 1 for Paytm or 2 for PhonePe.");
@@ -272,8 +265,7 @@ public class BankApplication {
                         System.out.println("1. Paytm");
                         System.out.println("2. PhonePe");
 
-                        int walletType = sc.nextInt();
-                        sc.nextLine();
+                        int walletType = Integer.parseInt(sc.nextLine());;
 
                         Wallet wallet = null;
 
@@ -305,8 +297,7 @@ public class BankApplication {
                         }
 
                         System.out.println("Enter Amount to Add:");
-                        double amountToAdd = sc.nextDouble();
-                        sc.nextLine();
+                        double amountToAdd = Double.parseDouble(sc.nextLine());
 
                         try {
 
@@ -333,8 +324,7 @@ public class BankApplication {
                         System.out.println("1. Paytm");
                         System.out.println("2. PhonePe");
 
-                        int walletType = sc.nextInt();
-                        sc.nextLine();
+                        int walletType = Integer.parseInt(sc.nextLine());
 
                         Wallet wallet = null;
 
@@ -368,8 +358,7 @@ public class BankApplication {
                         }
 
                         System.out.println("Enter Bill Amount:");
-                        double billAmount = sc.nextDouble();
-                        sc.nextLine();
+                        double billAmount = Double.parseDouble(sc.nextLine());
                         System.out.println("Enter Bill Name:");
                         String billName = sc.nextLine(); // Consume newline and read bill name
 
@@ -422,9 +411,9 @@ public class BankApplication {
                     break;
                 case 9:
                     System.out.println("Exiting the application. Thank you for using our services!");
+                    System.out.println("Refresh the web to start from fresh");
                     sc.close();
-                    System.exit(0);
-                    break;
+                    return;
                 default:
                     System.out.println("Invalid choice. Please enter a number between 1 and 9.");
             }
