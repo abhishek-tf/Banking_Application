@@ -1,4 +1,4 @@
-package com.tandf.casestudy.banking;
+package com.tandf.casestudy.banking.model;
 
 import java.util.Objects;
 

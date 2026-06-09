@@ -1,4 +1,4 @@
-package com.tandf.casestudy.banking;
+package com.tandf.casestudy.banking.exception;
 
 public class InsufficientBalanceException extends RuntimeException {
     public InsufficientBalanceException(String message) {

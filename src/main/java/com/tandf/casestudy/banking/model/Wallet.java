@@ -1,7 +1,9 @@
-package com.tandf.casestudy.banking;
-
+package com.tandf.casestudy.banking.model;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.tandf.casestudy.banking.exception.InsufficientBalanceException;
+import com.tandf.casestudy.banking.exception.WalletLimitExceededException;
 
 /*
  * Wallet Module - Smart Banking & Wallet System
@@ -288,78 +290,4 @@ interface WalletOperations {
 }
 
 
-class PaytmWallet extends Wallet {
 
-    private String upiId;
-
-    public PaytmWallet(String walletId, BankAccount linkedAccount) {
-        super(walletId, linkedAccount);
-    }
-
-    public PaytmWallet(String walletId, BankAccount linkedAccount, double initialBalance) {
-        super(walletId, linkedAccount, initialBalance);
-    }
-
-    public PaytmWallet(String walletId, BankAccount linkedAccount,
-                       double initialBalance, String upiId) {
-        super(walletId, linkedAccount, initialBalance);
-        this.upiId = upiId;
-    }
-
-    public String getUpiId() {
-        return upiId;
-    }
-
-    public void setUpiId(String upiId) {
-        this.upiId = upiId;
-    }
-
-    @Override
-    public String getProvider() {
-        return "Paytm";
-    }
-
-    @Override
-    public void displayDetails() {
-        super.displayDetails();
-        System.out.println("UPI Id            : " + (upiId != null ? upiId : "N/A"));
-    }
-}
-
-
-class PhonePeWallet extends Wallet {
-
-    private double cashback;
-
-    public PhonePeWallet(String walletId, BankAccount linkedAccount) {
-        super(walletId, linkedAccount);
-    }
-
-    public PhonePeWallet(String walletId, BankAccount linkedAccount, double initialBalance) {
-        super(walletId, linkedAccount, initialBalance);
-    }
-
-    public double getCashback() {
-        return cashback;
-    }
-
-    @Override
-    public String getProvider() {
-        return "PhonePe";
-    }
-
-    @Override
-    public void addMoney(double amount) {
-        super.addMoney(amount);
-        double cb = amount * 0.01; // 1% cashback, tracked separately from wallet balance
-        this.cashback += cb;
-        System.out.println("[PhonePe] Cashback earned: " + cb
-            + " | Total cashback: " + cashback);
-    }
-
-    @Override
-    public void displayDetails() {
-        super.displayDetails();
-        System.out.println("Cashback          : " + cashback);
-    }
-}

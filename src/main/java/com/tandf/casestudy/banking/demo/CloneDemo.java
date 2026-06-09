@@ -1,5 +1,10 @@
-package com.tandf.casestudy.banking;
+package com.tandf.casestudy.banking.demo;
 
+import com.tandf.casestudy.banking.exception.InvalidEmailException;
+import com.tandf.casestudy.banking.exception.InvalidPhoneNumberException;
+import com.tandf.casestudy.banking.model.Address;
+import com.tandf.casestudy.banking.model.CustomerAccount;
+import com.tandf.casestudy.banking.model.SavingAccount;
 public class CloneDemo {
 
     public static void main(String[] args) {

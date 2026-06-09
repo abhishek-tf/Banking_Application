@@ -1,4 +1,4 @@
-package com.tandf.casestudy.banking;
+package com.tandf.casestudy.banking.model;
 
 public class Address implements Cloneable {
 

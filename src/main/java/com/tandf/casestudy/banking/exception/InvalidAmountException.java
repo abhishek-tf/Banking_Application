@@ -1,4 +1,4 @@
-package com.tandf.casestudy.banking;
+package com.tandf.casestudy.banking.exception;
 
 public class InvalidAmountException extends RuntimeException {
     public InvalidAmountException(String message) {

@@ -1,5 +1,6 @@
-package com.tandf.casestudy.banking;
-
+package com.tandf.casestudy.banking.model;
+import com.tandf.casestudy.banking.exception.InsufficientBalanceException;
+import com.tandf.casestudy.banking.exception.InvalidAmountException;
 public abstract class BankAccount implements Cloneable {
 
     private String accountNumber;

@@ -1,7 +1,8 @@
-package com.tandf.casestudy.banking;
-
+package com.tandf.casestudy.banking.model;
 import java.time.LocalDateTime;
 import java.util.UUID;
+
+import com.tandf.casestudy.banking.exception.InvalidAmountException;
 
 public class Transaction {
     private final String transactionId;
