@@ -69,7 +69,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.6.3</version>
                 <configuration>
-                    <mainClass>com.tandf.casestudy.banking.BankApplication</mainClass>
+                  <mainClass>com.tandf.casestudy.banking.app.BankApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>

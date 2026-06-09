@@ -1,4 +1,4 @@
-package com.tandf.casestudy.banking;
+package com.tandf.casestudy.banking.db;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;

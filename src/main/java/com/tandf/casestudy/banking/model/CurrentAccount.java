@@ -1,5 +1,6 @@
-package com.tandf.casestudy.banking;
-
+package com.tandf.casestudy.banking.model;
+import com.tandf.casestudy.banking.exception.InsufficientBalanceException;
+import com.tandf.casestudy.banking.exception.InvalidAmountException;
 public class CurrentAccount extends BankAccount {
 
     private static final double DEFAULT_OVERDRAFT_LIMIT = 10000.0;

@@ -1,5 +1,8 @@
-package com.tandf.casestudy.banking;
+package com.tandf.casestudy.banking.model;
 import java.util.Objects;
+
+import com.tandf.casestudy.banking.exception.InvalidEmailException;
+import com.tandf.casestudy.banking.exception.InvalidPhoneNumberException;
 public class CustomerAccount implements Cloneable{
     private String customerId;
     private String name;

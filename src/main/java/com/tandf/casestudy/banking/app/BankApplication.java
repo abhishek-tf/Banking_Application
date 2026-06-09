@@ -1,4 +1,4 @@
-package com.tandf.casestudy.banking;
+package com.tandf.casestudy.banking.app;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,6 +6,23 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.UUID;
+
+import com.tandf.casestudy.banking.exception.DuplicateCustomerException;
+import com.tandf.casestudy.banking.exception.InsufficientBalanceException;
+import com.tandf.casestudy.banking.exception.InvalidAmountException;
+import com.tandf.casestudy.banking.exception.InvalidEmailException;
+import com.tandf.casestudy.banking.exception.InvalidPhoneNumberException;
+import com.tandf.casestudy.banking.model.BankAccount;
+import com.tandf.casestudy.banking.model.CurrentAccount;
+import com.tandf.casestudy.banking.model.CustomerAccount;
+import com.tandf.casestudy.banking.model.PaytmWallet;
+import com.tandf.casestudy.banking.model.PhonePeWallet;
+import com.tandf.casestudy.banking.model.SavingAccount;
+import com.tandf.casestudy.banking.model.Transaction;
+import com.tandf.casestudy.banking.model.TransactionType;
+import com.tandf.casestudy.banking.model.Wallet;
+
+
 
 // 3. Deposit
 // 4. Withdraw
@@ -22,7 +39,8 @@ public class BankApplication {
         HashMap<String, CustomerAccount> l1 = new HashMap<>();
         Map<String, BankAccount> accounts = new HashMap<>();
         Map<String, Wallet> wallets = new HashMap<>();
-        List<Transaction> history = new ArrayList<>();
+        List<Transaction> history;
+        history = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
        
 
@@ -217,7 +235,7 @@ public class BankApplication {
                         }
 
                         System.out.println("Select Wallet Type: 1 for Paytm, 2 for PhonePe");
-                        int walletType = Integer.parseInt(sc.nextLine());;
+                        int walletType = Integer.parseInt(sc.nextLine());
                         if (walletType != 1 && walletType != 2) {
 
                             System.out.println("Invalid wallet type. Please enter 1 for Paytm or 2 for PhonePe.");
@@ -265,7 +283,7 @@ public class BankApplication {
                         System.out.println("1. Paytm");
                         System.out.println("2. PhonePe");
 
-                        int walletType = Integer.parseInt(sc.nextLine());;
+                        int walletType = Integer.parseInt(sc.nextLine());
 
                         Wallet wallet = null;
 

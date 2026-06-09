@@ -1,5 +1,6 @@
-package com.tandf.casestudy.banking;
-
+package com.tandf.casestudy.banking.model;
+import com.tandf.casestudy.banking.exception.InsufficientBalanceException;
+import com.tandf.casestudy.banking.exception.InvalidAmountException;
 public class SavingAccount extends BankAccount {
 
     private static final double MIN_BALANCE = 1000.0;
