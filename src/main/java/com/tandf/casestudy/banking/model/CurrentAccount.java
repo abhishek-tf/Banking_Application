@@ -1,10 +1,12 @@
 package com.tandf.casestudy.banking.model;
 import com.tandf.casestudy.banking.exception.InsufficientBalanceException;
 import com.tandf.casestudy.banking.exception.InvalidAmountException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 public class CurrentAccount extends BankAccount {
 
     private static final double DEFAULT_OVERDRAFT_LIMIT = 10000.0;
-
+    private static final Logger logger= LoggerFactory.getLogger(CurrentAccount.class);
     private double overdraftLimit;
 
     public CurrentAccount() {
@@ -21,6 +23,7 @@ public class CurrentAccount extends BankAccount {
                           double initialDeposit, double overdraftLimit) {
         super(accountNumber, customer, initialDeposit);
         if (overdraftLimit < 0) {
+            logger.warn("The Overdraft limit cannot");
             throw new IllegalArgumentException("Overdraft limit cannot be negative");
         }
         this.overdraftLimit = overdraftLimit;
@@ -54,6 +57,7 @@ public class CurrentAccount extends BankAccount {
 
     @Override
     public void displayDetails() {
+        logger.info("displayDetails() called for CurrentAccount");
         System.out.println("Account Number  : " + getAccountNumber());
         System.out.println("Customer        : " + (getCustomer() != null ? getCustomer().getName() : "N/A"));
         System.out.println("Balance         : " + getBalance());
